@@ -2,7 +2,7 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:http/http.dart' as http;
 import 'package:restaurant_tour/core/network/api_client.dart';
-import 'package:restaurant_tour/core/utils/logger.dart';
+import 'package:restaurant_tour/core/utils/app_logger.dart';
 import 'package:restaurant_tour/features/restaurant/domain/repositories/restaurant_repository.dart';
 import 'package:restaurant_tour/features/restaurant/domain/use_cases/fetch_restaurants.dart';
 import 'package:restaurant_tour/features/restaurant/presentation/blocs/restaurant/restaurant_bloc.dart';

@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:restaurant_tour/core/utils/logger.dart';
+import 'package:restaurant_tour/core/utils/app_logger.dart';
 import '../constants/config.dart';
 
 class ApiClient {

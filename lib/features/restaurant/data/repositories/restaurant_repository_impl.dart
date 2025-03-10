@@ -2,7 +2,7 @@ import '../graphql/query.dart';
 import '../models/restaurant.dart';
 import '../../domain/repositories/restaurant_repository.dart';
 import '../static/restaurant_mock_data.dart';
-import 'package:restaurant_tour/core/utils/logger.dart';
+import 'package:restaurant_tour/core/utils/app_logger.dart';
 import 'package:restaurant_tour/core/network/api_client.dart';
 
 class RestaurantRepositoryImpl implements RestaurantRepository {

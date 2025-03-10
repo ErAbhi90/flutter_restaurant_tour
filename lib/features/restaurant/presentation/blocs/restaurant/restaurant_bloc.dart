@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:restaurant_tour/core/utils/logger.dart';
+import 'package:restaurant_tour/core/utils/app_logger.dart';
 import '../../../data/models/restaurant.dart';
 import '../../../domain/use_cases/fetch_restaurants.dart';
 

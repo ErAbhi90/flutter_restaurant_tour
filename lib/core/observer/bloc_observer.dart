@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../utils/logger.dart';
+import '../utils/app_logger.dart';
 
 class AppBlocObserver extends BlocObserver {
   final AppLogger logger;
