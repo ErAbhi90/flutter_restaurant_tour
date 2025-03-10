@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_tour/features/restaurant/presentation/widgets/restaurant_list_item.dart';
-
-import '../../data/models/restaurant.dart';
+import 'package:restaurant_tour/features/restaurant/data/models/restaurant.dart';
+import 'package:restaurant_tour/features/restaurant/presentation/widgets/restaurant_list_item_widget.dart';
 
 class RestaurantList extends StatelessWidget {
   final List<Restaurant> restaurants;
@@ -12,9 +11,8 @@ class RestaurantList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: restaurants.length,
-      itemBuilder: (context, index) {
-        return RestaurantListItem(restaurant: restaurants[index]);
-      },
+      itemBuilder: (context, index) =>
+          RestaurantListItemWidget(restaurant: restaurants[index]),
     );
   }
 }

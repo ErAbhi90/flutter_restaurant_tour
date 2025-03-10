@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:restaurant_tour/core/constants/app_strings.dart';
 import '../blocs/restaurant/restaurant_bloc.dart';
 import '../widgets/restaurants_list.dart';
 
@@ -17,7 +18,7 @@ class RestaurantsListScreen extends StatelessWidget {
         } else if (state is RestaurantError) {
           return Center(child: Text(state.message));
         }
-        return const Center(child: Text("No data available"));
+        return const Center(child: Text(AppStrings.noDataAvailable));
       },
     );
   }

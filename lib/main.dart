@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:restaurant_tour/core/constants/app_strings.dart';
 import 'package:restaurant_tour/core/di/service_locator.dart';
 import 'package:restaurant_tour/core/routes/app_router.dart';
+import 'package:restaurant_tour/features/restaurant/presentation/cubits/favourite_restaurants/favourite_restaurants_cubit.dart';
 
 import 'core/theme/app_theme.dart';
 import 'core/observer/bloc_observer.dart';
@@ -13,6 +16,11 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await dotenv.load(fileName: ".env");
+
+  HydratedBloc.storage = await HydratedStorage.build(
+    storageDirectory:
+        HydratedStorageDirectory((await getTemporaryDirectory()).path),
+  );
 
   Bloc.observer = AppBlocObserver();
 
@@ -31,6 +39,7 @@ class RestaurantTour extends StatelessWidget {
           create: (context) =>
               getIt<RestaurantBloc>()..add(FetchRestaurantsEvent(0)),
         ),
+        BlocProvider(create: (context) => getIt<FavoriteRestaurantsCubit>()),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

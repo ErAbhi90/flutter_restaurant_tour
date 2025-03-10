@@ -12,7 +12,10 @@ class RestaurantsScreen extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text(AppStrings.appTitle),
+          title: Text(
+            AppStrings.appTitle,
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
           bottom: const TabBar(
             tabs: [
               Tab(text: AppStrings.allRestaurants),

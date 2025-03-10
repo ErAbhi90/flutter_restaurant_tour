@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:restaurant_tour/core/network/api_client.dart';
+import 'package:restaurant_tour/features/restaurant/presentation/cubits/favourite_restaurants/favourite_restaurants_cubit.dart';
 import '../../features/restaurant/data/repositories/restaurant_repository_impl.dart';
 import '../../features/restaurant/domain/repositories/restaurant_repository.dart';
 import '../../features/restaurant/domain/use_cases/fetch_restaurants.dart';
@@ -20,8 +21,13 @@ Future<void> setupLocator() async {
     () => FetchRestaurants(getIt<RestaurantRepository>()),
   );
 
-  // Register RestaurantBloc with Correct Dependency
+  // Register RestaurantBloc
   getIt.registerFactory<RestaurantBloc>(
     () => RestaurantBloc(getIt<FetchRestaurants>()),
+  );
+
+  // Register FavoriteRestaurantsCubit
+  getIt.registerFactory<FavoriteRestaurantsCubit>(
+    () => FavoriteRestaurantsCubit(),
   );
 }

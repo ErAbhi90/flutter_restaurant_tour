@@ -27,7 +27,6 @@ class RestaurantRepositoryImpl implements RestaurantRepository {
           !response['data'].containsKey('search')) {
         throw Exception("Invalid API response: Missing 'search' key");
       }
-
       List<dynamic> data = response['data']['search']['business'];
       return data.map((json) => Restaurant.fromJson(json)).toList();
     } catch (e) {

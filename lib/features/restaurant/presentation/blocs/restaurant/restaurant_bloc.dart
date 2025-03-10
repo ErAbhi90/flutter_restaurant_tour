@@ -11,19 +11,27 @@ class RestaurantBloc extends Bloc<RestaurantEvent, RestaurantState> {
   final FetchRestaurants _fetchRestaurants;
 
   RestaurantBloc(this._fetchRestaurants) : super(RestaurantInitial()) {
-    on<FetchRestaurantsEvent>((event, emit) async {
+    on<FetchRestaurantsEvent>(_onFetchRestaurants);
+  }
+
+  Future<void> _onFetchRestaurants(
+    FetchRestaurantsEvent event,
+    Emitter<RestaurantState> emit,
+  ) async {
+    if (state is! RestaurantLoaded) {
       emit(RestaurantLoading());
-      try {
-        final restaurants = await _fetchRestaurants.execute(event.offset);
-        emit(RestaurantLoaded(restaurants));
-      } catch (e, stackTrace) {
-        AppLogger.logError(
-          "RestaurantBloc Error: $e",
-          error: e,
-          stackTrace: stackTrace,
-        );
-        emit(RestaurantError("Failed to fetch restaurants: $e"));
-      }
-    });
+    }
+
+    try {
+      final restaurants = await _fetchRestaurants.execute(event.offset);
+      emit(RestaurantLoaded(restaurants));
+    } catch (e, stackTrace) {
+      AppLogger.logError(
+        "RestaurantBloc Error: $e",
+        error: e,
+        stackTrace: stackTrace,
+      );
+      emit(RestaurantError("Failed to fetch restaurants"));
+    }
   }
 }

@@ -19,6 +19,16 @@ const Map<String, dynamic> mockRestaurantResponse = {
                 "image_url": "https://example.com/user1.jpg",
                 "name": "John Doe",
               },
+            },
+            {
+              "id": "review-2",
+              "rating": 3,
+              "text": "Food is good",
+              "user": {
+                "id": "user-1",
+                "image_url": "https://example.com/user1.jpg",
+                "name": "John Doe1",
+              },
             }
           ],
           "categories": [
