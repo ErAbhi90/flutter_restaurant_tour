@@ -1,16 +1,13 @@
 import 'package:logger/logger.dart';
 
 class AppLogger {
-  final Logger _logger;
+  static final Logger _logger = Logger(printer: PrettyPrinter());
 
-  AppLogger({Logger? logger})
-      : _logger = logger ?? Logger(printer: PrettyPrinter());
-
-  void logInfo(String message) {
+  static void logInfo(String message) {
     _logger.i(message);
   }
 
-  void logError(
+  static void logError(
     String message, {
     dynamic error,
     StackTrace? stackTrace,

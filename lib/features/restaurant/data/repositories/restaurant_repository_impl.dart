@@ -7,8 +7,9 @@ import 'package:restaurant_tour/core/network/api_client.dart';
 
 class RestaurantRepositoryImpl implements RestaurantRepository {
   final ApiClient _apiClient;
+  final AppLogger _logger;
 
-  RestaurantRepositoryImpl(this._apiClient);
+  RestaurantRepositoryImpl(this._apiClient, this._logger);
 
   @override
   Future<List<Restaurant>> fetchRestaurants(int offset) async {
@@ -27,17 +28,18 @@ class RestaurantRepositoryImpl implements RestaurantRepository {
           !response['data'].containsKey('search')) {
         throw Exception("Invalid API response: Missing 'search' key");
       }
+
       List<dynamic> data = response['data']['search']['business'];
       return data.map((json) => Restaurant.fromJson(json)).toList();
-    } catch (e) {
-      AppLogger.logError("HTTP Error: $e", error: e);
+    } catch (e, stackTrace) {
+      _logger.logError("HTTP Error: $e", error: e, stackTrace: stackTrace);
       return _fetchMockRestaurants();
     }
   }
 
   /// Load static mock data if API request fails
   List<Restaurant> _fetchMockRestaurants() {
-    AppLogger.logInfo("Using static data due to API failure.");
+    _logger.logInfo("Using static data due to API failure.");
     List<dynamic> data = mockRestaurantResponse['data']['search']['business'];
     return data.map((json) => Restaurant.fromJson(json)).toList();
   }

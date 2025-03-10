@@ -9,8 +9,10 @@ part 'restaurant_state.dart';
 
 class RestaurantBloc extends Bloc<RestaurantEvent, RestaurantState> {
   final FetchRestaurants _fetchRestaurants;
+  final AppLogger _logger;
 
-  RestaurantBloc(this._fetchRestaurants) : super(RestaurantInitial()) {
+  RestaurantBloc(this._fetchRestaurants, this._logger)
+      : super(RestaurantInitial()) {
     on<FetchRestaurantsEvent>(_onFetchRestaurants);
   }
 
@@ -26,7 +28,7 @@ class RestaurantBloc extends Bloc<RestaurantEvent, RestaurantState> {
       final restaurants = await _fetchRestaurants.execute(event.offset);
       emit(RestaurantLoaded(restaurants));
     } catch (e, stackTrace) {
-      AppLogger.logError(
+      _logger.logError(
         "RestaurantBloc Error: $e",
         error: e,
         stackTrace: stackTrace,

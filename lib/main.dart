@@ -17,14 +17,15 @@ Future<void> main() async {
 
   await dotenv.load(fileName: ".env");
 
+  await setupLocator();
+
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory:
         HydratedStorageDirectory((await getTemporaryDirectory()).path),
   );
 
-  Bloc.observer = AppBlocObserver();
+  Bloc.observer = getIt<AppBlocObserver>();
 
-  await setupLocator();
   runApp(const RestaurantTour());
 }
 
