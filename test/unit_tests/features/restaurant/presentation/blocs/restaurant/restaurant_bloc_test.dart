@@ -2,7 +2,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:restaurant_tour/features/restaurant/presentation/blocs/restaurant/restaurant_bloc.dart';
-import '../../../../../mocks.dart';
+import '../../../../../../mocks.dart';
 
 void main() {
   late RestaurantBloc bloc;

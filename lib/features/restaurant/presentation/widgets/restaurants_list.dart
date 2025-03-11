@@ -11,8 +11,10 @@ class RestaurantList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: restaurants.length,
-      itemBuilder: (context, index) =>
-          RestaurantListItemWidget(restaurant: restaurants[index]),
+      itemBuilder: (context, index) => RestaurantListItemWidget(
+        key: Key('restaurant_item_$index'),
+        restaurant: restaurants[index],
+      ),
     );
   }
 }

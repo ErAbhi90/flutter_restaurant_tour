@@ -4,7 +4,7 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:restaurant_tour/features/restaurant/presentation/cubits/favourite_restaurants/favourite_restaurants_cubit.dart';
 import 'package:restaurant_tour/features/restaurant/data/models/restaurant.dart';
-import '../../../../../mocks.dart';
+import '../../../../../../mocks.dart';
 
 void main() {
   late FavoriteRestaurantsCubit favoriteRestaurantsCubit;

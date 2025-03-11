@@ -27,7 +27,9 @@ class RestaurantDetailsScreen extends StatelessWidget {
           restaurant.name ?? AppStrings.restaurantDetails,
           style: Theme.of(context).textTheme.titleLarge,
         ),
-        actions: [FavoriteButtonWidget(restaurant: restaurant)],
+        actions: [
+          Flexible(child: FavoriteButtonWidget(restaurant: restaurant)),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(

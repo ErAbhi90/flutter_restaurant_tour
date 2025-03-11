@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:mocktail/mocktail.dart';
 import 'package:restaurant_tour/core/network/api_client.dart';
 
-import '../../mocks.dart';
+import '../../../mocks.dart';
 
 void main() {
   late ApiClient apiClient;

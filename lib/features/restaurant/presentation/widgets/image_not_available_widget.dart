@@ -18,16 +18,22 @@ class ImageNotAvailableWidget extends StatelessWidget {
       width: imageWidth,
       height: imageHeight,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
         children: [
           const Icon(
             AppIcons.imageNotAvailable,
             size: 40,
           ),
-          Text(
-            AppStrings.imageNotAvailable,
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.bodyMedium,
+          const SizedBox(height: 4),
+          Flexible(
+            child: Text(
+              AppStrings.imageNotAvailable,
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.bodyMedium,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
         ],
       ),

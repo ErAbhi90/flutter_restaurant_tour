@@ -3,7 +3,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:restaurant_tour/features/restaurant/data/repositories/restaurant_repository_impl.dart';
 import 'package:restaurant_tour/features/restaurant/domain/repositories/restaurant_repository.dart';
 import 'package:restaurant_tour/features/restaurant/data/models/restaurant.dart';
-import '../../../../mocks.dart';
+import '../../../../../mocks.dart';
 
 void main() {
   late RestaurantRepository repository;
