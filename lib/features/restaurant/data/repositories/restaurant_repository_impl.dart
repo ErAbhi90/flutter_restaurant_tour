@@ -31,6 +31,7 @@ class RestaurantRepositoryImpl implements RestaurantRepository {
 
       List<dynamic> data = response['data']['search']['business'];
       return data.map((json) => Restaurant.fromJson(json)).toList();
+      // return _fetchMockRestaurants();
     } catch (e, stackTrace) {
       _logger.logError("HTTP Error: $e", error: e, stackTrace: stackTrace);
       return _fetchMockRestaurants();

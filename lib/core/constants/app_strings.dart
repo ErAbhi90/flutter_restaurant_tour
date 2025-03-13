@@ -16,4 +16,6 @@ class AppStrings {
   static const String noDataAvailable = "No Data available";
   static const String noFavouriteRestaurants = "No favorite restaurants yet!";
   static const String imageNotAvailable = "Image Not Available";
+  static const String restaurantDetailsRequired =
+      "Restaurant details are required!";
 }

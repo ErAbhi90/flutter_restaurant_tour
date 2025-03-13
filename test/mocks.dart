@@ -10,6 +10,7 @@ import 'package:restaurant_tour/features/restaurant/domain/repositories/restaura
 import 'package:restaurant_tour/features/restaurant/domain/use_cases/fetch_restaurants.dart';
 import 'package:restaurant_tour/features/restaurant/presentation/blocs/restaurant/restaurant_bloc.dart';
 import 'package:restaurant_tour/features/restaurant/presentation/cubits/favourite_restaurants/favourite_restaurants_cubit.dart';
+import 'package:restaurant_tour/features/restaurant/presentation/cubits/tab_navigation/tab_navigation_cubit.dart';
 
 // Mock for HttpClient
 class MockHttpClient extends Mock implements http.Client {}
@@ -32,6 +33,9 @@ class MockRestaurantBloc extends Mock implements RestaurantBloc {}
 // Mock for FavoriteRestaurantsCubit
 class MockFavoriteRestaurantsCubit extends Mock
     implements FavoriteRestaurantsCubit {}
+
+//Mock for TabNavigationCubit
+class MockTabNavigationCubit extends Mock implements TabNavigationCubit {}
 
 // Mock Storage for HydratedBloc
 class MockStorage extends Mock implements Storage {}

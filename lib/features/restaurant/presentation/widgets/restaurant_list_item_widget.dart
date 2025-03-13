@@ -15,7 +15,7 @@ class RestaurantListItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).pushNamed(
+        context.pushNamed(
           AppRoutes.restaurantDetails.name,
           extra: restaurant,
         );
